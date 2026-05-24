@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f1e8">
+  <title>Aix-les-Bains — roteiro máximo de 1 dia</title>
+  <style>
+    :root {
+      --bg: #f6f1e8;
+      --bg-2: #efe7d8;
+      --surface: #fffdf8;
+      --surface-2: rgba(255, 253, 248, 0.86);
+      --text: #1f2826;
+      --muted: #707a76;
+      --muted-2: #9aa39e;
+      --border: rgba(31, 40, 38, 0.1);
+      --lake: #267a9c;
+      --forest: #2f6f4e;
+      --sand: #d8c39a;
+      --gold: #b9944c;
+      --transport: #60798c;
+      --food: #d98645;
+      --return: #c75c5c;
+      --success: #2f8f5b;
+      --shadow: 0 18px 45px rgba(31, 40, 38, 0.09);
+      --shadow-soft: 0 10px 24px rgba(31, 40, 38, 0.07);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --footer-h: 86px;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(38, 122, 156, 0.16), transparent 34rem),
+        radial-gradient(circle at 100% 20%, rgba(47, 111, 78, 0.13), transparent 28rem),
+        linear-gradient(180deg, var(--bg), #f9f6ef 45%, var(--bg));
+      color: var(--text);
+      padding-bottom: calc(var(--footer-h) + env(safe-area-inset-bottom) + 28px);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      padding: max(14px, env(safe-area-inset-top)) 16px 12px;
+      background: linear-gradient(180deg, rgba(246, 241, 232, 0.96), rgba(246, 241, 232, 0.82));
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(31, 40, 38, 0.08);
+    }
+
+    .hero-card {
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,253,248,0.68)),
+        linear-gradient(135deg, rgba(38,122,156,0.11), rgba(47,111,78,0.09));
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .badge-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(47, 111, 78, 0.1);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .date-pill {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 10px;
+      white-space: nowrap;
+    }
+
+    h1 {
+      font-size: clamp(26px, 7vw, 42px);
+      line-height: 0.96;
+      margin: 0 0 9px;
+      letter-spacing: -0.065em;
+      font-weight: 870;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 560;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .trip-mini {
+      padding: 10px;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(31,40,38,0.08);
+    }
+
+    .trip-mini strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .trip-mini span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    main {
+      padding: 14px 16px 0;
+    }
+
+    .progress-wrap {
+      position: sticky;
+      top: 204px;
+      z-index: 20;
+      margin-bottom: 16px;
+      padding: 14px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 248, 0.9);
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .progress-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .progress-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .progress-note {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    .percent {
+      font-size: 29px;
+      line-height: 1;
+      font-weight: 880;
+      letter-spacing: -0.06em;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+
+    .bar {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      margin-top: 12px;
+      background: rgba(31, 40, 38, 0.08);
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--forest), var(--lake));
+      transition: width 0.35s ease;
+    }
+
+    section {
+      margin: 18px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0 0 12px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+    }
+
+    .section-title p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 560;
+    }
+
+    .panel {
+      border-radius: var(--radius-xl);
+      background: var(--surface-2);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow-soft);
+      padding: 15px;
+    }
+
+    .rules-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .rule {
+      padding: 13px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .rule strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+    }
+
+    .rule span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+      font-weight: 560;
+    }
+
+    .rule.hot {
+      background: linear-gradient(135deg, rgba(199,92,92,0.16), rgba(255,255,255,0.74));
+      border-color: rgba(199,92,92,0.26);
+    }
+
+    .rule-icon {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(31,40,38,0.06);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 5px;
+      border-radius: 18px;
+      background: rgba(31,40,38,0.06);
+      border: 1px solid rgba(31,40,38,0.07);
+    }
+
+    .segmented button {
+      border: 0;
+      border-radius: 14px;
+      padding: 11px 8px;
+      color: var(--muted);
+      background: transparent;
+      font-size: 13px;
+      font-weight: 780;
+      cursor: pointer;
+    }
+
+    .segmented button.active {
+      color: var(--text);
+      background: var(--surface);
+      box-shadow: 0 6px 18px rgba(31,40,38,0.08);
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 13px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid var(--border);
+    }
+
+    .toggle-row span {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .switch {
+      width: 54px;
+      height: 32px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(31,40,38,0.16);
+      padding: 3px;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+
+    .switch i {
+      display: block;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(31,40,38,0.18);
+      transition: transform 0.25s ease;
+    }
+
+    .switch.active {
+      background: var(--forest);
+    }
+
+    .switch.active i {
+      transform: translateX(22px);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(96,121,140,0.15), rgba(47,111,78,0.33), rgba(38,122,156,0.24), rgba(199,92,92,0.28));
+      border-radius: 999px;
+    }
+
+    .card {
+      position: relative;
+      margin-left: 36px;
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.78);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+    }
+
+    .card.hidden {
+      display: none;
+    }
+
+    .card.completed {
+      opacity: 0.45;
+      filter: grayscale(0.65);
+    }
+
+    .card.highlight {
+      animation: pulseCard 1.15s ease;
+    }
+
+    @keyframes pulseCard {
+      0%, 100% { transform: translateY(0); box-shadow: var(--shadow-soft); }
+      35% { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(38,122,156,0.25); }
+    }
+
+    .dot {
+      position: absolute;
+      left: -28px;
+      top: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 850;
+      font-size: 13px;
+      border: 4px solid var(--bg);
+      box-shadow: 0 8px 18px rgba(31,40,38,0.15);
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .accent {
+      height: 5px;
+      background: var(--transport);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .timebox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(31,40,38,0.055);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1;
+    }
+
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      color: white;
+      font-size: 11px;
+      font-weight: 830;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    .completed h3 {
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(31,40,38,0.42);
+    }
+
+    .done-mark {
+      display: none;
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 850;
+      margin-top: 6px;
+    }
+
+    .completed .done-mark {
+      display: block;
+    }
+
+    .desc {
+      margin: 11px 0 0;
+      color: #3f4945;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 520;
+    }
+
+    .meta-box {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .meta {
+      padding: 10px 11px;
+      border-radius: 15px;
+      background: rgba(31,40,38,0.045);
+      border: 1px solid rgba(31,40,38,0.055);
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.35;
+      font-weight: 590;
+    }
+
+    .meta b {
+      color: var(--text);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 13px;
+    }
+
+    .btn {
+      min-height: 46px;
+      border: 0;
+      border-radius: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 12px 13px;
+      font-size: 14px;
+      font-weight: 820;
+      letter-spacing: -0.01em;
+      transition: transform 0.16s ease, opacity 0.16s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-map {
+      background: rgba(38,122,156,0.12);
+      color: var(--lake);
+      border: 1px solid rgba(38,122,156,0.16);
+    }
+
+    .btn-done {
+      background: var(--text);
+      color: white;
+    }
+
+    .completed .btn-done {
+      background: var(--success);
+    }
+
+    .reset-btn {
+      border: 1px solid rgba(199,92,92,0.22);
+      background: rgba(199,92,92,0.08);
+      color: var(--return);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 850;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .food-grid, .plan-route, .checklist {
+      display: grid;
+      gap: 10px;
+    }
+
+    .food-card {
+      padding: 14px;
+      border-radius: 19px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid var(--border);
+    }
+
+    .food-card strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .food-card span {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(217,134,69,0.13);
+      color: #9b5627;
+      font-size: 11px;
+      font-weight: 830;
+    }
+
+    .food-card p, .plan p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.42;
+      font-weight: 560;
+    }
+
+    .plan-route {
+      margin-top: 12px;
+      counter-reset: route;
+    }
+
+    .route-item {
+      counter-increment: route;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 11px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid var(--border);
+      color: #44504b;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .route-item::before {
+      content: counter(route);
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--forest);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .note {
+      margin-top: 12px;
+      padding: 13px;
+      border-radius: 17px;
+      background: rgba(47,111,78,0.09);
+      border: 1px solid rgba(47,111,78,0.15);
+      color: var(--forest);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+
+    .check-progress {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+      margin-bottom: 12px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .check-row input {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--forest);
+      flex: 0 0 auto;
+    }
+
+    .check-row span {
+      font-size: 14px;
+      font-weight: 720;
+      text-transform: capitalize;
+    }
+
+    .check-row:has(input:checked) span {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .safety {
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(199,92,92,0.14), rgba(255,253,248,0.82));
+      border: 1px solid rgba(199,92,92,0.19);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .safety h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.045em;
+    }
+
+    .safety p {
+      margin: 0;
+      color: #6c4440;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 640;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: linear-gradient(180deg, rgba(246,241,232,0), rgba(246,241,232,0.92) 20%, rgba(246,241,232,0.98));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .bottom-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .next-btn {
+      min-height: 56px;
+      border: 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--forest), var(--lake));
+      color: white;
+      font-size: 16px;
+      font-weight: 870;
+      letter-spacing: -0.02em;
+      box-shadow: 0 18px 38px rgba(38,122,156,0.28);
+      cursor: pointer;
+    }
+
+    .mini-status {
+      min-width: 96px;
+      padding: 10px 10px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(31,40,38,0.08);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 780;
+      line-height: 1.2;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(var(--footer-h) + env(safe-area-inset-bottom) + 12px);
+      z-index: 60;
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      width: calc(100% - 32px);
+      max-width: 420px;
+      padding: 13px 15px;
+      border-radius: 18px;
+      background: rgba(31,40,38,0.92);
+      color: white;
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 760;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    body.compact .card-body {
+      padding: 12px;
+    }
+
+    body.compact .desc,
+    body.compact .meta-box {
+      display: none;
+    }
+
+    body.compact .card h3 {
+      font-size: 16px;
+    }
+
+    body.compact .actions {
+      margin-top: 10px;
+    }
+
+    body.compact .timeline {
+      gap: 10px;
+    }
+
+    .neutral { --accent: var(--transport); }
+    .nature { --accent: var(--forest); }
+    .lake { --accent: var(--lake); }
+    .city { --accent: var(--gold); }
+    .food { --accent: var(--food); }
+    .return { --accent: var(--return); }
+
+    @media (max-width: 380px) {
+      .hero {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      main {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .trip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .progress-wrap {
+        top: 238px;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-status {
+        display: none;
+      }
+    }
+
+    @media (min-width: 760px) {
+      .progress-wrap {
+        top: 198px;
+      }
+
+      main {
+        padding-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero-card">
+        <div class="topline">
+          <span class="badge-main">✦ Bate-volta solo</span>
+          <span class="date-pill">24/05</span>
+        </div>
+        <h1>Aix-les-Bains — roteiro máximo de 1 dia</h1>
+        <p class="subtitle">24/05 • 12:59–19:57 • natureza, mirante e Lac du Bourget</p>
+        <div class="trip-grid" aria-label="Informações principais da viagem">
+          <div class="trip-mini"><strong>12:59</strong><span>Chegada</span></div>
+          <div class="trip-mini"><strong>19:57</strong><span>Volta</span></div>
+          <div class="trip-mini"><strong>19:05</strong><span>Retorno obrigatório</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <aside class="progress-wrap" aria-label="Progresso do roteiro">
+        <div class="progress-head">
+          <div>
+            <div class="progress-title" id="progressText">0 de 17 etapas concluídas</div>
+            <div class="progress-note" id="progressNote">Roteiro pronto para começar.</div>
+          </div>
+          <div class="percent" id="progressPercent">0%</div>
+        </div>
+        <div class="bar" aria-hidden="true"><div class="bar-fill" id="progressFill"></div></div>
+      </aside>
+
+      <section aria-labelledby="rulesTitle">
+        <div class="section-title">
+          <div>
+            <h2 id="rulesTitle">Regras críticas do dia</h2>
+            <p>Priorize segurança, horários e deslocamentos sem erro.</p>
+          </div>
+        </div>
+        <div class="panel rules-grid">
+          <div class="rule"><div class="rule-icon">🍱</div><div><strong>Almoço na gare: máximo 20 minutos</strong><span>Comer rápido, banheiro, água e conferir transporte.</span></div></div>
+          <div class="rule"><div class="rule-icon">⏱️</div><div><strong>Lanches rápidos: máximo 10 minutos</strong><span>Só fazer se estiver dentro do horário.</span></div></div>
+          <div class="rule hot"><div class="rule-icon">⚠️</div><div><strong>Às 19:05 começar a voltar para a gare</strong><span>Regra mais importante do dia. Acabou o passeio.</span></div></div>
+          <div class="rule"><div class="rule-icon">🚆</div><div><strong>Trem de volta às 19:57</strong><span>Não contar com margem apertada.</span></div></div>
+          <div class="rule"><div class="rule-icon">🚉</div><div><strong>Chegar na gare idealmente entre 19:25 e 19:35</strong><span>Margem confortável para painel, plataforma e imprevistos.</span></div></div>
+          <div class="rule"><div class="rule-icon">🌿</div><div><strong>Prioridade: natureza &gt; mirante &gt; lago &gt; pontos urbanos rápidos</strong><span>Cidade é passagem específica, não exploração longa.</span></div></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="timelineTitle">
+        <div class="section-title">
+          <div>
+            <h2 id="timelineTitle">Roteiro cronológico</h2>
+            <p>Siga em ordem. Marque cada etapa ao concluir.</p>
+          </div>
+          <button class="reset-btn" id="resetBtn" type="button">Resetar roteiro</button>
+        </div>
+
+        <div class="controls">
+          <div class="segmented" role="tablist" aria-label="Filtro de etapas">
+            <button type="button" class="active" data-filter="all">Todos</button>
+            <button type="button" data-filter="pending">Pendentes</button>
+            <button type="button" data-filter="completed">Concluídos</button>
+          </div>
+          <div class="toggle-row">
+            <span>Modo compacto</span>
+            <button type="button" class="switch" id="compactToggle" aria-label="Ativar modo compacto" aria-pressed="false"><i></i></button>
+          </div>
+        </div>
+
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section aria-labelledby="foodTitle">
+        <div class="section-title">
+          <div>
+            <h2 id="foodTitle">Comida e pausas</h2>
+            <p>Pausas úteis, mas sem comprometer o retorno.</p>
+          </div>
+        </div>
+        <div class="panel food-grid">
+          <div class="food-card">
+            <strong>Almoço na gare</strong>
+            <span>13:05–13:25 • máximo 20 minutos</span>
+            <p>Comer marmita rápido, banheiro, água e conferir TER/SNCF Connect.</p>
+          </div>
+          <div class="food-card">
+            <strong>Lanche rápido no lago / Grand Port</strong>
+            <span>Máximo 10 minutos</span>
+            <p>Só fazer se estiver dentro do horário.</p>
+          </div>
+          <div class="food-card">
+            <strong>Jantar / marmita rápida perto da Baie de Mémard</strong>
+            <span>Máximo 10–15 minutos</span>
+            <p>Não passar de 19:05.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="plan" aria-labelledby="planTitle">
+        <div class="section-title">
+          <div>
+            <h2 id="planTitle">Plano B — se o TER/Gorges não funcionar</h2>
+            <p>Use sem hesitar se o trecho para Grésy-sur-Aix complicar.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p>Se o TER das 13:35 para Grésy-sur-Aix / Gorges du Sierroz atrasar, for cancelado ou não funcionar, corte as Gorges du Sierroz e siga direto para o roteiro urbano + Bois Vidal + Lac du Bourget.</p>
+          <div class="plan-route" id="planRoute"></div>
+          <div class="note">Nesse caso, use o tempo extra para fazer o lago com mais calma e reduzir risco no fim do dia.</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="bagTitle">
+        <div class="section-title">
+          <div>
+            <h2 id="bagTitle">Checklist da mochila</h2>
+            <p>Marque antes de sair e acompanhe no celular.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="check-progress" id="bagProgress">0 de 14 itens preparados</div>
+          <div class="checklist" id="checklist"></div>
+        </div>
+      </section>
+
+      <section class="safety" aria-label="Lembrete final de segurança">
+        <h2>⚠️ Lembrete final</h2>
+        <p>Às 19:05, pare fotos, comida e caminhada turística. Volte para a Gare d’Aix-les-Bains – Le Revard. O objetivo é chegar entre 19:25 e 19:35 para pegar o trem das 19:57 com tranquilidade.</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="bottom-inner">
+      <button class="next-btn" id="nextBtn" type="button">Próxima etapa</button>
+      <div class="mini-status" id="miniStatus">0/17<br>concluídas</div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const itinerary = [
+      {
+        id: 1,
+        arrival: "12:59",
+        departure: "13:30",
+        duration: "31 min",
+        name: "Gare d’Aix-les-Bains – Le Revard",
+        type: "gare / almoço rápido",
+        maps: "https://www.google.com/maps/search/?api=1&query=Gare+d%27Aix-les-Bains+-+Le+Revard",
+        description: "Chegada em Aix-les-Bains. Banheiro rápido, conferir TER/SNCF Connect, almoço rápido com marmita e preparação para ir às Gorges du Sierroz.",
+        observation: "Almoço máximo de 20 minutos, idealmente 13:05–13:25.",
+        photo: "Foto rápida da fachada da gare apenas se não atrasar. Prioridade é comer, banheiro e conferir transporte."
+      },
+      {
+        id: 2,
+        arrival: "13:35",
+        departure: "13:56",
+        duration: "21 min",
+        name: "Trajeto TER Aix-les-Bains → Grésy-sur-Aix + caminhada até Gorges du Sierroz",
+        type: "transporte",
+        maps: "https://www.google.com/maps/search/?api=1&query=Gorges+du+Sierroz+Gr%C3%A9sy-sur-Aix",
+        description: "Pegar TER na Gare d’Aix-les-Bains – Le Revard para Grésy-sur-Aix e caminhar aproximadamente 17 minutos até as Gorges du Sierroz.",
+        observation: "Confirmar no painel da gare e no SNCF Connect. Se o TER não funcionar, ativar Plano B.",
+        photo: "Sem foco em foto. Prioridade é deslocamento rápido e sem erro."
+      },
+      {
+        id: 3,
+        arrival: "13:56",
+        departure: "14:45",
+        duration: "45–50 min",
+        name: "Gorges du Sierroz",
+        type: "natureza / canyon / rio",
+        maps: "https://www.google.com/maps/search/?api=1&query=Gorges+du+Sierroz+Gr%C3%A9sy-sur-Aix",
+        description: "Visita rápida e intensa às Gorges du Sierroz. Ver rio, passarelas, vegetação, garganta/canyon e tirar fotos naturais.",
+        observation: "Duração aproximada de 45–50 minutos. Não prolongar demais para não comprometer Bois Vidal e lago.",
+        photo: "Fotos com passarelas, rio, vegetação fechada, paredes da gorge e vídeos curtos com som da água."
+      },
+      {
+        id: 4,
+        arrival: "14:45",
+        departure: "15:20",
+        duration: "35 min",
+        name: "Volta para Aix-les-Bains / Gare d’Aix-les-Bains – Le Revard",
+        type: "transporte / retorno parcial",
+        maps: "https://www.google.com/maps/search/?api=1&query=Gare+d%27Aix-les-Bains+-+Le+Revard",
+        description: "Voltar para Aix-les-Bains usando o melhor transporte disponível: TER, ônibus ou caminhada se necessário.",
+        observation: "Objetivo é estar de volta perto da gare/centro entre 15:15 e 15:25.",
+        photo: "Sem foco em foto. Prioridade é voltar no horário."
+      },
+      {
+        id: 5,
+        arrival: "15:20",
+        departure: "15:35",
+        duration: "15 min",
+        name: "Casino Grand Cercle",
+        type: "centro / arquitetura / icônico",
+        maps: "https://www.google.com/maps/search/?api=1&query=Casino+Grand+Cercle+Aix-les-Bains",
+        description: "Passagem rápida pelo ponto urbano mais icônico de Aix-les-Bains. Foto externa da fachada e da região Belle Époque.",
+        observation: "Não entrar. Apenas passagem rápida para foto externa.",
+        photo: "Foto da fachada, detalhes arquitetônicos e rua ao redor."
+      },
+      {
+        id: 6,
+        arrival: "15:35",
+        departure: "15:45",
+        duration: "10 min",
+        name: "Rue de Genève",
+        type: "centro / passagem rápida",
+        maps: "https://www.google.com/maps/search/?api=1&query=Rue+de+Gen%C3%A8ve+Aix-les-Bains",
+        description: "Passagem rápida pelo centrinho de Aix-les-Bains para ver o movimento, comércio e atmosfera da cidade.",
+        observation: "Não gastar tempo em compras. Apenas sentir a atmosfera e seguir.",
+        photo: "Fotos urbanas rápidas, vitrines, rua e arquitetura."
+      },
+      {
+        id: 7,
+        arrival: "15:45",
+        departure: "15:55",
+        duration: "10 min",
+        name: "Parc Floral des Thermes",
+        type: "jardim / pausa curta",
+        maps: "https://www.google.com/maps/search/?api=1&query=Parc+Floral+des+Thermes+Aix-les-Bains",
+        description: "Pausa curta para água, protetor solar, ajustar mochila e tirar fotos rápidas do jardim.",
+        observation: "Máximo 10 minutos. Se estiver atrasado, apenas passar.",
+        photo: "Fotos rápidas do jardim, caminhos, flores e ambiente termal."
+      },
+      {
+        id: 8,
+        arrival: "15:55",
+        departure: "16:10",
+        duration: "15 min",
+        name: "Caminhada até Bois Vidal",
+        type: "deslocamento a pé",
+        maps: "https://www.google.com/maps/search/?api=1&query=Bois+Vidal+Aix-les-Bains",
+        description: "Caminhada do Parc Floral des Thermes até o Bois Vidal.",
+        observation: "Manter ritmo constante. O objetivo é chegar ao belvédère.",
+        photo: "Sem foco em foto. Apenas registrar algo rápido se o caminho estiver bonito."
+      },
+      {
+        id: 9,
+        arrival: "16:10",
+        departure: "16:45",
+        duration: "35 min",
+        name: "Belvédère du Bois Vidal",
+        type: "mirante / floresta / vista de cima",
+        maps: "https://www.google.com/maps/search/?api=1&query=Belv%C3%A9d%C3%A8re+du+Bois+Vidal+Aix-les-Bains",
+        description: "Ponto alto realista do dia. Vista panorâmica sobre Aix-les-Bains, Lac du Bourget, montanhas e cidade. Fazer fotos e vídeos rápidos.",
+        observation: "Não explorar todo o Bois Vidal. Foco no belvédère e descida rápida.",
+        photo: "Foto de costas olhando o panorama, vídeo panorâmico curto, foto vertical com árvores enquadrando a vista."
+      },
+      {
+        id: 10,
+        arrival: "16:45",
+        departure: "17:30",
+        duration: "45 min",
+        name: "Deslocamento para Petit Port / Lac du Bourget",
+        type: "deslocamento / ônibus ou caminhada",
+        maps: "https://www.google.com/maps/search/?api=1&query=Petit+Port+Aix-les-Bains",
+        extraMaps: "https://www.google.com/maps/search/?api=1&query=Garibaldi+Zander+Aix-les-Bains",
+        description: "Descer em direção ao Lac du Bourget. Usar ônibus DIM se aparecer rápido; se não, caminhar sem perder tempo.",
+        observation: "Também considerar como destino Garibaldi Zander se o ônibus for melhor para Grand Port/Jardin Vagabond.",
+        photo: "Poucas fotos. Prioridade é chegar ao lago."
+      },
+      {
+        id: 11,
+        arrival: "17:30",
+        departure: "17:50",
+        duration: "20 min",
+        name: "Petit Port d’Aix-les-Bains",
+        type: "lago / porto / barcos",
+        maps: "https://www.google.com/maps/search/?api=1&query=Petit+Port+Aix-les-Bains",
+        description: "Primeiro contato forte com o Lac du Bourget. Barcos, água, montanhas e promenade.",
+        observation: "Começar a sentir o lago, mas sem gastar todo o tempo aqui. O Grand Port ainda vem depois.",
+        photo: "Foto vertical com lago e montanhas, barcos alinhados, caminhada na beira do lago."
+      },
+      {
+        id: 12,
+        arrival: "17:50",
+        departure: "18:10",
+        duration: "20 min",
+        name: "Esplanade du Lac",
+        type: "lago / caminhada panorâmica",
+        maps: "https://www.google.com/maps/search/?api=1&query=Esplanade+du+Lac+Aix-les-Bains",
+        description: "Caminhada pela beira do lago em direção ao Grand Port. O deslocamento já é parte do passeio.",
+        observation: "Não tratar como deslocamento morto. Aproveitar a luz, mas seguir andando.",
+        photo: "Lago aberto, montanhas, promenade, vídeo caminhando."
+      },
+      {
+        id: 13,
+        arrival: "18:10",
+        departure: "18:35",
+        duration: "25 min",
+        name: "Grand Port d’Aix-les-Bains",
+        type: "porto / lago / fotos principais",
+        maps: "https://www.google.com/maps/search/?api=1&query=Grand+Port+Aix-les-Bains",
+        description: "Um dos pontos mais fotogênicos do roteiro, com barcos, lago aberto, montanhas e melhor luz do fim da tarde.",
+        observation: "Se precisar, fazer lanche rápido de no máximo 10 minutos.",
+        photo: "Fotos com barcos, montanhas ao fundo, foto de costas olhando o lago, vídeo panorâmico."
+      },
+      {
+        id: 14,
+        arrival: "18:35",
+        departure: "18:55",
+        duration: "20 min",
+        name: "Jardin Vagabond",
+        type: "natureza viva / jardim natural / lago",
+        maps: "https://www.google.com/maps/search/?api=1&query=Jardin+Vagabond+Aix-les-Bains",
+        description: "Área natural perto do lago, com vegetação, caminhos, atmosfera mais selvagem e fotos menos óbvias.",
+        observation: "Manter atenção ao horário. O retorno obrigatório está próximo.",
+        photo: "Vegetação em primeiro plano, lago ao fundo, caminhos naturais, fotos espontâneas caminhando."
+      },
+      {
+        id: 15,
+        arrival: "18:55",
+        departure: "19:05",
+        duration: "10 min",
+        name: "Baie de Mémard",
+        type: "lago / natureza / fotos finais",
+        maps: "https://www.google.com/maps/search/?api=1&query=Baie+de+M%C3%A9mard+Aix-les-Bains",
+        description: "Último ponto natural e fotográfico do dia. Fazer fotos finais com lago, montanhas e vegetação.",
+        observation: "Se for comer marmita/sanduíche aqui, máximo 10–15 minutos e não passar de 19:05.",
+        photo: "Foto de costas olhando o lago, vegetação + água, vídeo panorâmico curto."
+      },
+      {
+        id: 16,
+        arrival: "Opcional",
+        departure: "Sem atrasar o retorno",
+        duration: "Opcional",
+        name: "Plage de Mémard",
+        type: "praia / lago / opcional",
+        maps: "https://www.google.com/maps/search/?api=1&query=Plage+de+M%C3%A9mard+Aix-les-Bains",
+        description: "Passagem opcional se estiver no caminho entre Jardin Vagabond e Baie de Mémard. Não atrasar o retorno.",
+        observation: "Não ficar se passar de 19:05.",
+        photo: "Foto rápida da margem, água e atmosfera de praia do lago."
+      },
+      {
+        id: 17,
+        arrival: "19:25–19:35 idealmente",
+        departure: "Trem às 19:57",
+        duration: "Segurança",
+        name: "Retorno para Gare d’Aix-les-Bains – Le Revard",
+        type: "retorno / segurança",
+        maps: "https://www.google.com/maps/search/?api=1&query=Gare+d%27Aix-les-Bains+-+Le+Revard",
+        description: "Voltar para a gare com margem de segurança. Procurar ônibus primeiro; se não tiver ônibus útil, caminhar imediatamente.",
+        observation: "Regra rígida: às 19:05, acabou o passeio. Voltar para a gare. Trem às 19:57 para Paris Gare de Lyon.",
+        photo: "Sem foco em foto. Segurança do retorno vem primeiro."
+      }
+    ];
+
+    const backpackItems = [
+      "documento",
+      "bilhete de trem",
+      "celular",
+      "power bank",
+      "cabo",
+      "água",
+      "marmita",
+      "frutas/lanche",
+      "protetor solar",
+      "óculos de sol",
+      "boné",
+      "guardanapo",
+      "talher",
+      "saquinho plástico"
+    ];
+
+    const planB = [
+      "Gare d’Aix-les-Bains – Le Revard",
+      "Casino Grand Cercle",
+      "Rue de Genève",
+      "Parc Floral des Thermes",
+      "Bois Vidal",
+      "Belvédère du Bois Vidal",
+      "Petit Port d’Aix-les-Bains",
+      "Esplanade du Lac",
+      "Grand Port d’Aix-les-Bains",
+      "Jardin Vagabond",
+      "Baie de Mémard",
+      "Retorno para Gare d’Aix-les-Bains – Le Revard"
+    ];
+
+    const keys = {
+      completed: "aixRouteCompleted",
+      backpack: "aixBackpackChecklist",
+      compact: "aixCompactMode"
+    };
+
+    let completed = readArray(keys.completed);
+    let backpack = readArray(keys.backpack);
+    let currentFilter = "all";
+
+    const timelineEl = document.getElementById("timeline");
+    const progressText = document.getElementById("progressText");
+    const progressNote = document.getElementById("progressNote");
+    const progressPercent = document.getElementById("progressPercent");
+    const progressFill = document.getElementById("progressFill");
+    const miniStatus = document.getElementById("miniStatus");
+    const resetBtn = document.getElementById("resetBtn");
+    const compactToggle = document.getElementById("compactToggle");
+    const nextBtn = document.getElementById("nextBtn");
+    const toast = document.getElementById("toast");
+    const checklistEl = document.getElementById("checklist");
+    const bagProgress = document.getElementById("bagProgress");
+    const planRoute = document.getElementById("planRoute");
+
+    function readArray(key) {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveArray(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function getCategory(type) {
+      const t = type.toLowerCase();
+      if (t.includes("retorno") || t.includes("segurança")) return { cls: "return", color: "var(--return)", icon: "⚠️" };
+      if (t.includes("lago") || t.includes("porto") || t.includes("praia")) return { cls: "lake", color: "var(--lake)", icon: "🌊" };
+      if (t.includes("natureza") || t.includes("jardim") || t.includes("floresta") || t.includes("canyon") || t.includes("mirante")) return { cls: "nature", color: "var(--forest)", icon: t.includes("mirante") ? "⛰️" : "🌿" };
+      if (t.includes("centro") || t.includes("arquitetura")) return { cls: "city", color: "var(--gold)", icon: "🏛️" };
+      if (t.includes("almoço") || t.includes("comida")) return { cls: "food", color: "var(--food)", icon: "🍱" };
+      if (t.includes("transporte") || t.includes("deslocamento") || t.includes("caminhada")) return { cls: "neutral", color: "var(--transport)", icon: "🚌" };
+      return { cls: "neutral", color: "var(--transport)", icon: "🚉" };
+    }
+
+    function renderTimeline() {
+      timelineEl.innerHTML = itinerary.map(step => {
+        const done = completed.includes(step.id);
+        const cat = getCategory(step.type);
+        const extra = step.extraMaps ? `<a class="btn btn-map" href="${step.extraMaps}" target="_blank" rel="noopener" aria-label="Abrir destino extra no Google Maps">Destino extra</a>` : "";
+        return `
+          <article class="card ${cat.cls} ${done ? "completed" : ""}" data-id="${step.id}" data-completed="${done}" style="--accent:${cat.color}">
+            <div class="accent" style="background:${cat.color}"></div>
+            <div class="dot" style="background:${cat.color}">${step.id}</div>
+            <div class="card-body">
+              <div class="card-top">
+                <div>
+                  <div class="timebox">
+                    <span class="chip">⏱️ Chegada ${escapeHtml(step.arrival)}</span>
+                    <span class="chip">Saída ${escapeHtml(step.departure)}</span>
+                    <span class="chip">${escapeHtml(step.duration)}</span>
+                  </div>
+                  <h3>${escapeHtml(step.name)}</h3>
+                  <div class="done-mark">Concluído ✔️</div>
+                </div>
+                <span class="type-badge" style="background:${cat.color}">${cat.icon} ${escapeHtml(step.type)}</span>
+              </div>
+              <p class="desc">${escapeHtml(step.description)}</p>
+              <div class="meta-box">
+                <div class="meta"><b>✦ Observação:</b> ${escapeHtml(step.observation)}</div>
+                <div class="meta"><b>📸 Dica de foto:</b> ${escapeHtml(step.photo)}</div>
+              </div>
+              <div class="actions">
+                <a class="btn btn-map" href="${step.maps}" target="_blank" rel="noopener" aria-label="Abrir ${escapeHtml(step.name)} no Google Maps">Abrir no Maps</a>
+                <button class="btn btn-done" type="button" data-complete="${step.id}">${done ? "Concluído ✔️" : "Concluir ✔️"}</button>
+                ${extra}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+      applyFilter();
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const count = completed.length;
+      const total = itinerary.length;
+      const percent = Math.round((count / total) * 100);
+      progressText.textContent = `${count} de ${total} etapas concluídas`;
+      progressPercent.textContent = `${percent}%`;
+      progressFill.style.width = `${percent}%`;
+      miniStatus.innerHTML = `${count}/${total}<br>concluídas`;
+
+      if (percent === 0) progressNote.textContent = "Roteiro pronto para começar.";
+      else if (percent <= 40) progressNote.textContent = "Bom ritmo — mantenha atenção aos horários.";
+      else if (percent <= 75) progressNote.textContent = "Você já avançou bastante no roteiro.";
+      else if (percent < 100) progressNote.textContent = "Reta final — priorize o retorno com segurança.";
+      else progressNote.textContent = "Roteiro concluído.";
+    }
+
+    function applyFilter() {
+      document.querySelectorAll(".card").forEach(card => {
+        const isDone = card.dataset.completed === "true";
+        const show =
+          currentFilter === "all" ||
+          (currentFilter === "pending" && !isDone) ||
+          (currentFilter === "completed" && isDone);
+        card.classList.toggle("hidden", !show);
+      });
+    }
+
+    function toggleStep(id) {
+      if (completed.includes(id)) {
+        completed = completed.filter(item => item !== id);
+      } else {
+        completed.push(id);
+      }
+      completed.sort((a, b) => a - b);
+      saveArray(keys.completed, completed);
+      const card = document.querySelector(`.card[data-id="${id}"]`);
+      const done = completed.includes(id);
+      if (card) {
+        card.classList.toggle("completed", done);
+        card.dataset.completed = String(done);
+        const button = card.querySelector("[data-complete]");
+        if (button) button.textContent = done ? "Concluído ✔️" : "Concluir ✔️";
+      }
+      updateProgress();
+      applyFilter();
+    }
+
+    function renderChecklist() {
+      checklistEl.innerHTML = backpackItems.map((item, index) => {
+        const checked = backpack.includes(index);
+        return `
+          <label class="check-row">
+            <input type="checkbox" data-bag="${index}" ${checked ? "checked" : ""}>
+            <span>${escapeHtml(item)}</span>
+          </label>
+        `;
+      }).join("");
+      updateBagProgress();
+    }
+
+    function updateBagProgress() {
+      bagProgress.textContent = `${backpack.length} de ${backpackItems.length} itens preparados`;
+    }
+
+    function renderPlanB() {
+      planRoute.innerHTML = planB.map(item => `<div class="route-item">${escapeHtml(item)}</div>`).join("");
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function scrollToNext() {
+      const visibleCards = [...document.querySelectorAll(".card:not(.hidden)")];
+      const next = visibleCards.find(card => card.dataset.completed !== "true");
+      if (!next) {
+        showToast("Todas as etapas foram concluídas.");
+        return;
+      }
+      next.scrollIntoView({ behavior: "smooth", block: "center" });
+      next.classList.remove("highlight");
+      setTimeout(() => next.classList.add("highlight"), 80);
+      setTimeout(() => next.classList.remove("highlight"), 1300);
+    }
+
+    document.addEventListener("click", event => {
+      const completeBtn = event.target.closest("[data-complete]");
+      if (completeBtn) {
+        toggleStep(Number(completeBtn.dataset.complete));
+      }
+
+      const filterBtn = event.target.closest("[data-filter]");
+      if (filterBtn) {
+        currentFilter = filterBtn.dataset.filter;
+        document.querySelectorAll("[data-filter]").forEach(btn => btn.classList.remove("active"));
+        filterBtn.classList.add("active");
+        applyFilter();
+      }
+    });
+
+    checklistEl.addEventListener("change", event => {
+      const input = event.target.closest("[data-bag]");
+      if (!input) return;
+      const id = Number(input.dataset.bag);
+      if (input.checked && !backpack.includes(id)) backpack.push(id);
+      if (!input.checked) backpack = backpack.filter(item => item !== id);
+      backpack.sort((a, b) => a - b);
+      saveArray(keys.backpack, backpack);
+      updateBagProgress();
+    });
+
+    resetBtn.addEventListener("click", () => {
+      const ok = confirm("Tem certeza que deseja resetar o roteiro?");
+      if (!ok) return;
+      completed = [];
+      localStorage.removeItem(keys.completed);
+      renderTimeline();
+      showToast("Roteiro resetado.");
+    });
+
+    compactToggle.addEventListener("click", () => {
+      const active = !document.body.classList.contains("compact");
+      document.body.classList.toggle("compact", active);
+      compactToggle.classList.toggle("active", active);
+      compactToggle.setAttribute("aria-pressed", String(active));
+      localStorage.setItem(keys.compact, String(active));
+    });
+
+    nextBtn.addEventListener("click", scrollToNext);
+
+    function initCompactMode() {
+      const active = localStorage.getItem(keys.compact) === "true";
+      document.body.classList.toggle("compact", active);
+      compactToggle.classList.toggle("active", active);
+      compactToggle.setAttribute("aria-pressed", String(active));
+    }
+
+    initCompactMode();
+    renderPlanB();
+    renderChecklist();
+    renderTimeline();
+  </script>
+</body>
+</html>
